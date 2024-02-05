@@ -136,6 +136,13 @@ impl ZipArchive {
         }
     }
 
+    pub fn file_exist(&mut self, name: &str) -> bool {
+        return self
+            .entries
+            .get(name)
+            .is_some();
+    }
+
     pub fn by_name(&mut self, name: &str) -> ZipResult<ZipFile> {
         let data = self
             .entries
